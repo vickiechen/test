@@ -1,0 +1,40 @@
+{{page-title "Candidates"}}
+{{outlet}}
+
+<h1>Listing candidates</h1>
+
+{{#each model as |applicant|}}
+<div>
+  <h2>{{applicant.name}}</h2>
+  <p>Age: {{applicant.age}}</p>
+</div>
+{{else}}
+  <div>No records found</div>
+{{/each}}
+
+<hr>
+
+<h1>New Applicant</h1>
+<div class="container new_application_form">
+    <div class="row">
+      <div class="col-float-left col-25">
+        <label for="name">Name</label>
+      </div>
+      <div class="col-float-left col-75">
+        <Input @value={{this.newApplicant.name}}  placeholder="Applicant Name"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-float-left col-25">
+        <label for="age">Age</label>
+      </div>
+      <div class="col-float-left col-75">
+        <Input @value={{this.newApplicant.age}}  placeholder="Applicant Age"/>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-float-left col-50">
+         <button type="submit" {{on 'click' (action 'addNew')}} >Add New</button>
+      </div>
+    </div>
+</div>
